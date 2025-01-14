@@ -1,0 +1,36 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: User enters a note in the text field and clicks the "Save" button
+
+    browser->>server: POST /exampleapp/notes { "content": "New note", "date": "2025-01-14" }
+    activate server
+    server-->>browser: Redirect to /exampleapp/notes
+    deactivate server
+
+    Note right of browser: Browser follows the redirect
+
+    browser->>server: GET /exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET /exampleapp/main.css
+    activate server
+    server-->>browser: CSS file
+    deactivate server
+
+    browser->>server: GET /exampleapp/main.js
+    activate server
+    server-->>browser: JavaScript file
+    deactivate server
+
+    Note right of browser: JavaScript executes to fetch and display updated notes
+
+    browser->>server: GET /exampleapp/data.json
+    activate server
+    server-->>browser: JSON data with all notes
+    deactivate server
+
+    Note right of browser: Browser updates the UI with the new note
