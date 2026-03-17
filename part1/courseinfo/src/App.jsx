@@ -1,3 +1,4 @@
+/* Test comment*/
 const Header = ({ course }) => <h1>{course}</h1>
 
 const Content = ({ part1, exercises1, part2, exercises2, part3, exercises3 }) => (
